@@ -52,11 +52,11 @@ There are four available fade transitions. Just make sure they are set at the co
 
 ### `pageTop`
 
-One thing with Vue.js is that when components load in and out between routes the scroll bar doesn't change position. We most likely want to scroll to the top of the page for new (main) routes.
+One thing with Vue.js is that when components load in and out between routes, the scroll bar doesn't change position. We most likely want to scroll to the top of the page for new (main) routes.
 
-Once you add this it will automatically scroll to the top of the page based on a route group which can be set in your route mappings.
+Once set it will automatically scroll to the top of the page based on a route group which can be set in your route mappings.
 
-The default value in the routes file will be called `scrollTop` for setting groups.
+The default value in the routes file will be called `pageTop` for setting groups.
 
 ```
 ...
@@ -79,4 +79,4 @@ The default value in the routes file will be called `scrollTop` for setting grou
 ...
 ```
 
-Any routes in the same `group` will NOT scroll to top. Only routes between DIFFERENT groups will scroll to the top.
+Any routes in the same `group` will NOT scroll to top. Only routes between DIFFERENT groups will scroll to the top (or no group set at all).

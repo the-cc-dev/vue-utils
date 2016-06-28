@@ -1,6 +1,7 @@
 module.exports = (function () {
 
-    var _enter = null,
+    var _outOccured = false,
+        _enter = null,
         _options = null;
 
     function _animateFade(el, step, direction, cb) {
@@ -20,19 +21,29 @@ module.exports = (function () {
             el.style.display = null;
             el.style.opacity = 0;
 
-            _animateFade(el, 0, 1, done);
+            _animateFade(el, 0, 1, function () {
+                _outOccured = false;
+                done();
+            });
         };
+
+        if ( ! _outOccured) { _enter(); }
     }
 
     function _noFadeIn(el, done) {
         el.style.display = 'none';
 
         _enter = function () {
+            _outOccured = false;
             el.style.display = null;
         };
+
+        if ( ! _outOccured) { _enter(); }
     }
 
     function _fadeOut(el, done) {
+        _outOccured = true;
+
         _animateFade(el, 10, -1, function () {
             _enter();
             done();
@@ -40,6 +51,8 @@ module.exports = (function () {
     }
 
     function _noFadeOut(el, done) {
+        _outOccured = true;
+
         setTimeout(function () {
             _enter();
             done();

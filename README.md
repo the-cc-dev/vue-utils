@@ -12,7 +12,7 @@ We want to tuck away all this functionality and just have it ready to go in our 
 With default options just set an array.
 
 ```
-Vue.use(require('vue-utils'), ['pageTop', 'pageFade']);
+Vue.use(require('vue-utils'), ['pageTop', 'pageFade', 'pageMeta']);
 ```
 
 Or
@@ -20,7 +20,8 @@ Or
 ```
 Vue.use(require('vue-utils'), {
     pageTop:  {key: 'someKey'},
-    pageFade: {duration: 1000}
+    pageFade: {duration: 1000},
+    pageMeta: {}
 });
 ```
 
@@ -80,3 +81,29 @@ The default value in the routes file will be called `pageTop` for setting groups
 ```
 
 Any routes in the same `group` will NOT scroll to top. Only routes between DIFFERENT groups will scroll to the top (or no group set at all).
+
+
+### `pageMeta`
+
+Set meta properties defined in the route.
+
+It will try to find meta tags by `name` or `property` and set it's `content`.
+
+**NOTE:** This is just a simply utility for setting static meta content. If setting some kind of open graph meta it's best to use some kind of global store.
+
+It's more useful for setting visible things like the `title`.
+
+```
+...
+
+'/login': {
+    meta: {
+        title: 'Login',
+        meta: [
+            {attribute: 'description', content: 'This is the login page description.'}
+        ]
+    },
+    component: require('./components/pages/Login.vue'),
+}
+...
+```

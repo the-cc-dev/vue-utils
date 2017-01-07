@@ -3,11 +3,11 @@ module.exports = (function () {
     return function(Vue, options, router) {
         options = options || {};
 
-        router.afterEach(function (t) {
+        router.afterEach(function (to) {
             var i, ii, j, jj, meta, elements;
 
-            if (t.to && t.to.meta) {
-                meta = t.to.meta;
+            if (to && to.meta && to.meta.meta) {
+                meta = to.meta.meta;
 
                 if (meta.title) { document.title = meta.title; }
 

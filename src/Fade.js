@@ -59,7 +59,7 @@ module.exports = (function () {
         }, 50);
     }
 
-    return function(Vue, options, router) {
+    return function install(Vue, options) {
         _options = options || {};
 
         _options.duration = (_options.duration || 400) / 10;

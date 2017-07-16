@@ -10,11 +10,11 @@
   "licenses": "MIT, GPL",
   "devDependencies": {},
   "keywords": ["vue", "vue.js", "util", "utilities", "utils", "route", "$route", "fade", "scroll", "to top"],
-  "main": "vue-utils.js",
+  "main": "",
   "name": "@websanova/vue-utils",
   "repository": {
     "type": "git",
     "url": "https://github.com/websanova/vue-utils"
   },
-  "version": "0.4.0"
+  "version": "0.5.0"
 }

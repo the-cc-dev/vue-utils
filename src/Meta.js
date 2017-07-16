@@ -1,9 +1,9 @@
 module.exports = (function () {
 
-    return function(Vue, options, router) {
+    return function install(Vue, options) {
         options = options || {};
 
-        router.afterEach(function (to) {
+        Vue.router.afterEach(function (to) {
             var i, ii, j, jj, meta, elements;
 
             if (to && to.meta && to.meta.meta) {

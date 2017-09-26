@@ -25,7 +25,7 @@ module.exports = (function () {
                 (from && from.fullPath === to.fullPath) || // Same routes don't trigger, but in case they do some day.
                 ( ! (frTab && toTab && frTab.group === toTab.group))
             ) {
-                document.body.scrollTop = 0;
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
         });
     };

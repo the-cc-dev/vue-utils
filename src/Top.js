@@ -23,7 +23,7 @@ module.exports = (function () {
 
             if (
                 (from && !(frTab || toTab) && from.path !== to.path) ||
-                ((frTab || toTab) && (frTab || {}).group !== (toTab || {}).group)
+                ((frTab || toTab) && frTab !== toTab)
             ) {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
             }

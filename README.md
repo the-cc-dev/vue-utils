@@ -35,7 +35,7 @@ The default value in the routes file will be called `pageTop` for setting groups
 '/tabs': {
     component: require('./components/pages/tabs/Index.vue'),
     meta: {
-        top: {group: 'tabs-test'},
+        top: 'tabs-test',
     },
     children: [{
         path: '/',

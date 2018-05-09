@@ -22,8 +22,8 @@ module.exports = (function () {
                 toTab = _top(to, key);
 
             if (
-                (from && from.fullPath === to.fullPath) || // Same routes don't trigger, but in case they do some day.
-                ( ! (frTab && toTab && frTab.group === toTab.group))
+                (from && !(frTab || toTab) && from.path !== to.path) ||
+                ((frTab || toTab) && (frTab || {}).group !== (toTab || {}).group)
             ) {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
